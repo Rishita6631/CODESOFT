@@ -1,0 +1,81 @@
+<html>
+<head>
+<title>Simple Calculator</title>
+<style>
+body{
+	text-align: center;
+	font-family: Arial, sans-serif;
+}
+.calculator {
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      border: 5px solid #F1948A;
+      border-radius: 5px;
+      background-color: #E8DAEF;
+   
+}
+input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      text-align: right;
+}
+
+input[type="button"] {
+      width: 45px;
+      height: 45px;
+      margin: 2px;
+      font-size: 18px;
+}
+
+#result {
+    font-size: 24px;
+}
+</style>
+</head>
+<body>
+  <div class="calculator">
+  <h2>CALCULATOR</h2>
+    <input type="text" id="result" disabled> 
+    <br>
+    <input type="button" value="1" onclick="appendtoresult('1')">
+    <input type="button" value="2" onclick="appendtoresult('2')">
+    <input type="button" value="3" onclick="appendtoresult('3')">
+    <input type="button" value="+" onclick="appendtoresult('+')">
+    <br>
+    <input type="button" value="4" onclick="appendtoresult('4')">
+    <input type="button" value="5" onclick="appendtoresult('5')">
+    <input type="button" value="6" onclick="appendtoresult('6')">
+    <input type="button" value="-" onclick="appendtoresult('-')">
+    <br>
+    <input type="button" value="7" onclick="appendtoresult('7')">
+    <input type="button" value="8" onclick="appendtoresult('8')">
+    <input type="button" value="9" onclick="appendtoresult('9')">
+    <input type="button" value="*" onclick="appendtoresult('*')">
+    <br>
+    <input type="button" value="C" onclick="clearresult()">
+    <input type="button" value="0" onclick="appendtoresult('0')">
+    <input type="button" value="/" onclick="appendtoresult('/')">
+    <input type="button" value="=" onclick="calculateresult()">
+  </div>
+  <script>
+    function appendtoresult(value) {
+    document.getElementById('result').value += value;
+    }
+
+    function clearresult() {
+     document.getElementById('result').value = '';
+    }
+
+    function calculateresult() {
+      try {
+      document.getElementById('result').value = eval(document.getElementById('result').value);
+      } 
+      catch (error) {
+      document.getElementById('result').value = 'Error';
+      }
+    }
+</script>
+</body>
+</html>
